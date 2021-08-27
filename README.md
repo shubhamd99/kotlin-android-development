@@ -6,6 +6,16 @@
 3. Click Build -> Rebuild Project
 4. Sometimes you have to Clear cache by File -> Invalidate Caches / Restart
 
+#### Jetpack
+Jetpack is a suite of libraries to help developers follow best practices, reduce boilerplate code, and write code that works consistently across Android versions and devices so that developers can focus on the code they care about. Jetpack is a suite of libraries to help developers follow best practices, reduce boilerplate code, and write code that works consistently across Android versions and devices so that developers can focus on the code they care about. Allow apps to run on all Android platform versions. Backward compatibility. Enhances process of app development. Better testability.
+
+#### MVP (Model View Presenter)
+MVP (Model View Presenter) pattern is a derivative from the well known MVC (Model View Controller), and one of the most popular patterns to organize the presentation layer in Android Applications.
+
+The MVP pattern allows separating the presentation layer from the logic so that everything about how the UI works is agnostic from how we represent it on screen. 
+
+For an application to be easily extensible and maintainable, we need to define well-separated layers. MVP makes views independent from our data source. We divide the application into at least three different layers, which lets us test them independently. With MVP we take most of the logic out from the activities so that we can test it without using instrumentation tests.
+
 #### Data Binding
 The Data Binding Library is a support library that allows you to bind UI components in your layouts to data sources in your app using a declarative format rather than programmatically.
 
@@ -16,3 +26,8 @@ The Data Binding Library is a support library that allows you to bind UI compone
 * Steps to Enable Data Binding - Enable data binding, then Wrap xml with layout tags, and construct a data binding object
 
 * Kotlin Synthetic (KTX) can be used to avoid findViewById()  for smaller projects. It is very easy to use and really helpful in some situations. But it is not a recommended best practice(by google) . Also you will miss a lot of advantages provided by data binding for larger complex projects.
+
+#### View Model
+The ViewModel class is designed to store and manage UI-related data in a lifecycle conscious way. The ViewModel class allows data to survive configuration changes such as screen rotations. The Android framework manages the lifecycles of UI controllers, such as activities and fragments. The framework may decide to destroy or re-create a UI controller in response to certain user actions or device events that are completely out of your control.
+
+If the system destroys or re-creates a UI controller, any transient UI-related data you store in them is lost. For example, your app may include a list of users in one of its activities. When the activity is re-created for a configuration change, the new activity has to re-fetch the list of users.
