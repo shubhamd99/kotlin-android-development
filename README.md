@@ -31,3 +31,5 @@ The Data Binding Library is a support library that allows you to bind UI compone
 The ViewModel class is designed to store and manage UI-related data in a lifecycle conscious way. The ViewModel class allows data to survive configuration changes such as screen rotations. The Android framework manages the lifecycles of UI controllers, such as activities and fragments. The framework may decide to destroy or re-create a UI controller in response to certain user actions or device events that are completely out of your control.
 
 If the system destroys or re-creates a UI controller, any transient UI-related data you store in them is lost. For example, your app may include a list of users in one of its activities. When the activity is re-created for a configuration change, the new activity has to re-fetch the list of users. View model instance will live in the memory holding activities data during config changes.
+
+A ViewModel's onCleared() is called when the app is put into the background and the app process is killed in order to free up the system's memory.
