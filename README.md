@@ -16,6 +16,9 @@ The MVP pattern allows separating the presentation layer from the logic so that 
 
 For an application to be easily extensible and maintainable, we need to define well-separated layers. MVP makes views independent from our data source. We divide the application into at least three different layers, which lets us test them independently. With MVP we take most of the logic out from the activities so that we can test it without using instrumentation tests.
 
+#### lateinit
+The lateinit keyword stands for late initialization. Lateinit comes very handy when a non-null initializer cannot be supplied in the constructor, but the developer is certain that the variable will not be null when accessing it, thus avoiding null checks when referencing it later.
+
 #### Data Binding
 The Data Binding Library is a support library that allows you to bind UI components in your layouts to data sources in your app using a declarative format rather than programmatically.
 
@@ -33,3 +36,6 @@ The ViewModel class is designed to store and manage UI-related data in a lifecyc
 If the system destroys or re-creates a UI controller, any transient UI-related data you store in them is lost. For example, your app may include a list of users in one of its activities. When the activity is re-created for a configuration change, the new activity has to re-fetch the list of users. View model instance will live in the memory holding activities data during config changes.
 
 A ViewModel's onCleared() is called when the app is put into the background and the app process is killed in order to free up the system's memory.
+
+#### View Model Factory
+We can not create ViewModel on our own. We need ViewModelProviders utility provided by Android to create ViewModels. But ViewModelProviders can only instantiate ViewModels with no arg constructor. So if we have a ViewModel with multiple arguments, then we need to use a Factory that we can pass to ViewModelProviders to use when an instance of MyViewModel is required.
