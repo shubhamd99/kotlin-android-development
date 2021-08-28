@@ -63,6 +63,8 @@ We can write code to observe the data in the view model from the activity of fra
 #### Navigation Architecture Component
 Jetpack Navigation Architecture Component library makes our development task much easier by providing many built-in tools to handle everything needed for in-app navigation. The new trend in Android development is Single activity with multiple fragments model.
 
+Its not recommended to pass data between destinations, best practice is listing a view model and get the data from the view model.
+
 * NavigationGraph - Its an XML resource file that contains all navigation related information, this allows us to manage navigation related task from single from single location.
 
 * NavHostFragment - Its an empty container we keep on the activity to hold the navigation graph.
