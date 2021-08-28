@@ -1,20 +1,22 @@
 package com.anushka.viewmodeldemo2
 
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
 class MainActivityViewModel(startingTotal : Int) : ViewModel() {
-    private var total = 0
+    private var total = MutableLiveData<Int>()
+    val totalData : LiveData<Int> // Non Mutable Public Variable
+
+    // Getters
+    get() = total
 
     init {
-        total = startingTotal
+        total.value = startingTotal
     }
 
-    fun getTotal(): Int {
-        return total
-    }
-
-    fun setTotal(input: Int): Int {
-        total += input
-        return total
+    fun setTotal(input: Int) {
+        // Addition total.value += input with null check
+        total.value = (total.value) ?.plus(input)
     }
 }
