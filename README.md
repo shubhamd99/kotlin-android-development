@@ -58,4 +58,4 @@ We can not create ViewModel on our own. We need ViewModelProviders utility provi
 #### View Model Live Data
 LiveData is an observable data holder class. Unlike a regular observable, LiveData is lifecycle-aware, meaning it respects the lifecycle of other app components, such as activities, fragments, or services. This awareness ensures LiveData only updates app component observers that are in an active lifecycle state.
 
-We can write code to observe the data in the view model from the activity of fragment and if any change or update to those data happens, with live data we can write code to automatically update the activity of fragment.
+We can write code to observe the data in the view model from the activity of fragment and if any change or update to those data happens, with live data we can write code to automatically update the activity of fragment. With Live data we don't have to write codes to handle life cycles manually, since live data is aware of life cycle state changes they cleanup themselves when there associated lifecycle is destroyed therefore no memory leaks or crashes will happen.
