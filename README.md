@@ -1,5 +1,7 @@
 ## Kotlin Android Development 11
 
+*Jetpack - https://developer.android.com/jetpack
+
 #### Steps To Open Project
 1. Open a folder in Android Studio For Example 1-SimpleDataBinding
 2. If you see any gradle plugin update message click on update
@@ -15,6 +17,18 @@ MVP (Model View Presenter) pattern is a derivative from the well known MVC (Mode
 The MVP pattern allows separating the presentation layer from the logic so that everything about how the UI works is agnostic from how we represent it on screen. 
 
 For an application to be easily extensible and maintainable, we need to define well-separated layers. MVP makes views independent from our data source. We divide the application into at least three different layers, which lets us test them independently. With MVP we take most of the logic out from the activities so that we can test it without using instrumentation tests.
+
+#### Activity
+The Activity class is a crucial component of an Android app, and the way activities are launched and put together is a fundamental part of the platform's application model. Unlike programming paradigms in which apps are launched with a main() method, the Android system initiates code in an Activity instance by invoking specific callback methods that correspond to specific stages of its lifecycle.
+
+If you have worked with C, C++ or Java programming language then you must have seen that your program starts from main() function. Very similar way, Android system initiates its program with in an Activity starting with a call on onCreate() callback method. There is a sequence of callback methods that start up an activity and a sequence of callback methods that tear down an activity as shown in the below Activity life cycle diagram:
+
+![activity](https://www.tutorialspoint.com/android/images/activity.jpg)
+
+#### Fragments
+A Fragment represents a reusable portion of your app's UI. A fragment defines and manages its own layout, has its own lifecycle, and can handle its own input events. Fragments cannot live on their own--they must be hosted by an activity or another fragment. 
+
+![fragments](https://developer.android.com/images/guide/fragments/fragment-screen-sizes.png)
 
 #### lateinit
 The lateinit keyword stands for late initialization. Lateinit comes very handy when a non-null initializer cannot be supplied in the constructor, but the developer is certain that the variable will not be null when accessing it, thus avoiding null checks when referencing it later.
@@ -39,3 +53,9 @@ A ViewModel's onCleared() is called when the app is put into the background and 
 
 #### View Model Factory
 We can not create ViewModel on our own. We need ViewModelProviders utility provided by Android to create ViewModels. But ViewModelProviders can only instantiate ViewModels with no arg constructor. So if we have a ViewModel with multiple arguments, then we need to use a Factory that we can pass to ViewModelProviders to use when an instance of MyViewModel is required.
+
+
+#### View Model Live Data
+LiveData is an observable data holder class. Unlike a regular observable, LiveData is lifecycle-aware, meaning it respects the lifecycle of other app components, such as activities, fragments, or services. This awareness ensures LiveData only updates app component observers that are in an active lifecycle state.
+
+We can write code to observe the data in the view model from the activity of fragment and if any change or update to those data happens, with live data we can write code to automatically update the activity of fragment.
