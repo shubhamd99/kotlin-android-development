@@ -83,4 +83,23 @@ A LayoutManager is responsible for measuring and positioning item views within a
 
 A coroutine is a concurrency design pattern that you can use on Android to simplify code that executes asynchronously.
 
-On Android, coroutines help to manage long-running tasks that might otherwise block the main thread and cause your app to become unresponsive. Over 50% of professional developers who use coroutines have reported seeing increased productivity.
+On Android, coroutines help to manage long-running tasks that might otherwise block the main thread and cause your app to become unresponsive. Over 50% of professional developers who use coroutines have reported seeing increased productivity. One thread can have many coroutine on that thread. Coroutines are seperate processes running on the same thread.
+
+Scope in Kotlin's coroutines can be defined as the restrictions within which the Kotlin coroutines are being executed. Scopes help to predict the lifecycle of the coroutines.
+Global Scope is used to launch top level coroutines which are operating on the whole application lifetime, we rarely use this in development.
+
+Dispatchers describe the kind of thread where the coroutine should be run in kotlin, it is always recommneded to start coroutines using main thread and then switch to background threads. To launch the coroutines in the main thread we use Dispatchers.Main (UI Thread), Others we have Dipstachers.IO (Background Thread), Dispatchers.Default (For CPU intensive tasks such as sorting a large list), Dispacthers.Unconfined (will run in the current thread, but if it is suspended and resumed it will run on suspending function's thread)
+
+Launch builder launches a new coroutine without blocking the current thread. Returns an instance of Job, which can be used as a reference to the coroutine. We use this builder for coroutines that does not have any result as the return value.
+
+Async builder launches a new coroutine without blocking the main thread. Returns an instance of Deferred<T>. We need to invoke await() to get the value. We use this builder for coroutines that does have a result as the return value.
+
+Produce builder is for coroutines which produces a stream of elements, Returns an instance of Receive Channel.
+
+RunBlocking - The coroutine we creare using this thread will block the thread while the coroutine is executing. It is used mostly for testing.
+
+In Kotlin Coroutines, whenever a coroutine is suspended, the current stack frame of the function is copied and saved in the memory. When the function resumes after completing its task, the stack frame is copied back from where it was saved and starts running again. Example - withContext, delay, withTimtout, await, withTimeoutOrNull, supervisorScope, join, coroutineScope.
+
+#### Structured Concurrency
+
+It is a set of language features and best practises introduced for Kotlin Coroutines to avoid leaks and to manage them productively. 
