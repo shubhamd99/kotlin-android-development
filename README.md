@@ -78,3 +78,9 @@ Its not recommended to pass data between destinations, best practice is listing 
 When you have a long list of items to show you can use RecyclerView. It has the ability to reuse its views. In RecyclerView when the View goes out of the screen or not visible to the user it won’t destroy it, it will reuse these views. This feature helps in reducing power consumption and providing more responsiveness to the application. 
 
 A LayoutManager is responsible for measuring and positioning item views within a RecyclerView as well as determining the policy for when to recycle item views that are no longer visible to the user.
+
+#### Kotlin Coroutines
+
+A coroutine is a concurrency design pattern that you can use on Android to simplify code that executes asynchronously.
+
+On Android, coroutines help to manage long-running tasks that might otherwise block the main thread and cause your app to become unresponsive. Over 50% of professional developers who use coroutines have reported seeing increased productivity.
