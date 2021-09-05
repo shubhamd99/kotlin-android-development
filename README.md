@@ -76,3 +76,5 @@ Its not recommended to pass data between destinations, best practice is listing 
 #### RecyclerView
 
 When you have a long list of items to show you can use RecyclerView. It has the ability to reuse its views. In RecyclerView when the View goes out of the screen or not visible to the user it won’t destroy it, it will reuse these views. This feature helps in reducing power consumption and providing more responsiveness to the application. 
+
+A LayoutManager is responsible for measuring and positioning item views within a RecyclerView as well as determining the policy for when to recycle item views that are no longer visible to the user.
